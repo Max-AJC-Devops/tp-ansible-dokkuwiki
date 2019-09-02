@@ -1,0 +1,29 @@
+server0 ansible_user=root
+server1 ansible_user=root
+server2 ansible_user=root
+
+#geography
+
+[europe]
+server0
+server1
+server2
+
+#services
+
+[app]
+server0
+
+[db]
+server1
+
+[proxy]
+server2
+
+#hardware
+
+[vm]
+server0
+server1
+server2
+

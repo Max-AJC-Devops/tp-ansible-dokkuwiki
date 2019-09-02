@@ -1,0 +1,24 @@
+---
+
+- hosts: app
+  tasks:
+    - name: Install apache
+      apt:
+        name: apache2
+        state: present
+    
+    - name: Install php
+      apt:
+        name: libapache2-mod-php
+        state: present
+    
+    - name: Upload dokkuwiki.org
+      get_url:
+        url: https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz        
+        dest: /usr/src/dokuwiki.tgz
+
+    - name: extract dokkuwiki
+      unarchive:
+        src: /usr/src/dokkuwiki.tgz        
+        dest: /usr/src/dokuwiki
+        remote_src: yes
