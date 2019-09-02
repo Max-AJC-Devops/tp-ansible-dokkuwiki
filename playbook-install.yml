@@ -12,13 +12,18 @@
         name: libapache2-mod-php
         state: present
     
-    - name: Upload dokkuwiki.org
+    - name: Upload dokuwiki.org
       get_url:
         url: https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz        
         dest: /usr/src/dokuwiki.tgz
 
-    - name: extract dokkuwiki
+    - name: Create directory dokuwiki
+      file:
+        path: /usr/src/dokuwiki
+        state: directory
+
+    - name: extract dokuwiki
       unarchive:
-        src: /usr/src/dokkuwiki.tgz        
+        src: /usr/src/dokuwiki.tgz        
         dest: /usr/src/dokuwiki
         remote_src: yes
